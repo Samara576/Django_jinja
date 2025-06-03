@@ -1,0 +1,25 @@
+{% extends 'courses/base.html' %}
+
+{% block title %}Курстар тизмеси{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Биз сунуштаган курстар:</h2>
+
+<div class="row">
+    {% for course in courses %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ course.name }}</h5>
+                <p class="card-text"><strong>Мугалим:</strong> {{ course.teacher }}</p>
+                <p><strong>Мөөнөтү:</strong> {{ course.duration }}</p>
+                <p><strong>Баасы:</strong> {{ course.price }} сом</p>
+                <a href="#" class="btn btn-primary">Катталуу</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+        <p>Азырынча курстар табылган жок.</p>
+    {% endfor %}
+</div>
+{% endblock %}
